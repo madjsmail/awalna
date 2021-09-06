@@ -1,48 +1,45 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'awalna',
+    title: "awalna",
     htmlAttrs: {
-      lang: 'en'
+      lang: "en"
     },
-    meta: [{
-        charset: 'utf-8'
+    meta: [
+      {
+        charset: "utf-8"
       },
       {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1'
+        name: "viewport",
+        content: "width=device-width, initial-scale=1"
       },
       {
-        hid: 'description',
-        name: 'description',
-        content: ''
+        hid: "description",
+        name: "description",
+        content: ""
       },
       {
-        name: 'format-detection',
-        content: 'telephone=no'
+        name: "format-detection",
+        content: "telephone=no"
       }
     ],
-    link: [{
-      rel: 'icon',
-      type: 'image/x-icon',
-      href: '/favicon.ico'
-    }]
+    link: [
+      {
+        rel: "icon",
+        type: "image/x-icon",
+        href: "/favicon.ico"
+      }
+    ]
   },
-  target: 'static',
+  target: "static",
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-
-    '@/assets/style.css',
-  ],
+  css: ["@/assets/style.css"],
   router: {
-
-    linkExactActiveClass: 'has-text-primary',
+    linkExactActiveClass: "has-text-primary"
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-
-  ],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -55,34 +52,39 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-
     // https://go.nuxtjs.dev/buefy
-    ['nuxt-buefy', {
-      css: true,
-      materialDesignIcons: true
-    }],
+    [
+      "nuxt-buefy",
+      {
+        css: true,
+        materialDesignIcons: true
+      }
+    ],
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
-    '@tui-nuxt/editor',
-    '@nuxtjs/auth'
+    // "@nuxtjs/axios",
+    "@tui-nuxt/editor",
+    // "@nuxtjs/auth"
+    { src: "@nuxtjs/axios", mode: "client" },
+    { src: "@nuxtjs/auth", mode: "client" }
   ],
   tui: {
     editor: {}
   },
-  serverMiddleware: [
-
-  ],
+  serverMiddleware: [],
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: process.env.BASE_URL || 'http://localhost:8080' // here set your API url
+    baseURL: process.env.BASE_URL || "http://localhost:8080" // here set your API url  process.env.BASE_URL ||
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
   auth: {
-    strategies: { // The strategies are ways that we want to implement our authentication with here we just use local strategy 
-      local: { // The name of our strategy
-        token: { // The token config
+    strategies: {
+      // The strategies are ways that we want to implement our authentication with here we just use local strategy
+      local: {
+        // The name of our strategy
+        token: {
+          // The token config
           property: "token", // The token property name that API will provide us when we log in
           global: true, // This determines if the authentication token is automatically included in all custom axios requests.
           required: true, // This option can be used to disable all token handling.
@@ -91,7 +93,7 @@ export default {
         },
         user: {
           property: "user", // The user object that API will provide us when we log in
-          autoFetch: true // if it was true will send a request to API to call the user endpoint 
+          autoFetch: true // if it was true will send a request to API to call the user endpoint
         },
         endpoints: {
           login: {
@@ -106,5 +108,5 @@ export default {
         }
       }
     }
-  },
-}
+  }
+};
