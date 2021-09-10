@@ -82,15 +82,16 @@ export default {
     strategies: {
       // The strategies are ways that we want to implement our authentication with here we just use local strategy
       local: {
+        tokenType: "token",
         // The name of our strategy
-        token: {
-          // The token config
-          property: "token", // The token property name that API will provide us when we log in
-          global: true, // This determines if the authentication token is automatically included in all custom axios requests.
-          required: true, // This option can be used to disable all token handling.
-          type: "Bearer" // Authorization header type to be used in axios requests.
-          //  We don't use maxAge, because we provide expiry time for token from API
-        },
+        // token: {
+        //   // The token config
+        //   property: "token", // The token property name that API will provide us when we log in
+        //   global: true, // This determines if the authentication token is automatically included in all custom axios requests.
+        //   required: true, // This option can be used to disable all token handling.
+        //   type: "Bearer" // Authorization header type to be used in axios requests.
+        //   //  We don't use maxAge, because we provide expiry time for token from API
+        // },
         user: {
           property: "user", // The user object that API will provide us when we log in
           autoFetch: true // if it was true will send a request to API to call the user endpoint
@@ -98,12 +99,14 @@ export default {
         endpoints: {
           login: {
             url: "/api/auth/login",
-            method: "post"
+            method: "post",
+            propertyName: "token"
           }, // our endpoint for sending request to the API
           logout: false, //  we don't have an endpoint for our logout in our API and we just remove the token from localstorage
           user: {
             url: "/api/auth/user",
-            method: "get"
+            method: "get",
+            propertyName: "user" ///"data.attributes"
           } // our endpoint for getting data from the API
         }
       }
