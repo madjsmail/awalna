@@ -87,14 +87,14 @@ export default {
         // token: {
         //   // The token config
         //   property: "token", // The token property name that API will provide us when we log in
-        //   global: true, // This determines if the authentication token is automatically included in all custom axios requests.
-        //   required: true, // This option can be used to disable all token handling.
-        //   type: "Bearer" // Authorization header type to be used in axios requests.
+        //   global: true // This determines if the authentication token is automatically included in all custom axios requests.
+        //   // required: true, // This option can be used to disable all token handling.
+        //   // type: "Bearer" // Authorization header type to be used in axios requests.
         //   //  We don't use maxAge, because we provide expiry time for token from API
         // },
         user: {
           property: "user", // The user object that API will provide us when we log in
-          autoFetch: true // if it was true will send a request to API to call the user endpoint
+          autoFetch: false // if it was true will send a request to API to call the user endpoint
         },
         endpoints: {
           login: {
