@@ -16,7 +16,7 @@ export default {
       {
         hid: "description",
         name: "description",
-        content: ""
+        content: "a dictionary web app for our algerian Dialect algeria , relies on users contribution with the definition of words  "
       },
       {
         name: "format-detection",
