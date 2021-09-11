@@ -10,6 +10,17 @@
 </template>
 
 <script>
+
+export default {
+  created () {
+
+  if (! process.server) return
+  if (this.getState('token')) {
+    this.setState('loggedIn', true)
+  
+}
+  }
+}
 </script>
 <style scoped>
 @media only screen and (max-width: 500px) {
