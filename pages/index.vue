@@ -24,7 +24,7 @@
               {{ getUserInfo.role }}
             </p>
             <h1 class="title titled is-1 mb-6">
-              absurd illustrations that make sense
+              AWALNA
             </h1>
             <h2
               class="
@@ -36,8 +36,7 @@
                 is-family-sans-serif
               "
             >
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum
-              cupiditate dolorum vitae dolores nesciunt totam magni quas.
+             is a dictionary web app for algerian  dialect ,relies on your contribution
             </h2>
             <div
               class="
