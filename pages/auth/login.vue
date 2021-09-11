@@ -58,7 +58,7 @@ export default {
         let response = await this.$auth.loginWith("local", {
           data: this.loginData,
         });
-        this.$router.push("/");
+        this.$router.push("/contribute");
       } catch (err) {
       
         this.errMsg = true;

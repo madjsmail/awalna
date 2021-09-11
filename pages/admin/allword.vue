@@ -62,7 +62,7 @@
 import loading from "~/components/loading.vue";
 export default {
   components: { loading },
-  // middleware: ["isAuthenticated", "isAdmin"],
+   middleware: ["isAuthenticated", "isAdmin"],
   data() {
     return {
       loading: true,
