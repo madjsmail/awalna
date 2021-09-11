@@ -27,12 +27,12 @@
     </div>
 
     <div class="field">
-      <label class="label">origin</label>
+      <label class="label">Origin</label>
       <div class="control">
         <input
           class="input"
-          v-model="origin"
-          name="origin"
+          v-model="Origin"
+          name="Origin"
           type="text"
           placeholder="Example"
         />
@@ -73,7 +73,7 @@ export default {
     return {
       Word: "",
       synonyms: "",
-      origin: "",
+      Origin: "",
       Description: "",
       editorText: "This is initialValue.",
       editorOptions: {
@@ -111,14 +111,14 @@ export default {
           .$post("/api/Word", {
             word: this.Word,
             synonyms: this.synonyms,
-            origin: this.origin,
+            Origin: this.Origin,
             description: this.Description,
             AddBy: this.getUserInfo.fullname,
           })
           .then(() => {
             this.Word = "";
             this.synonyms = "";
-            this.origin = "";
+            this.Origin = "";
             this.Description = "";
           });
 
