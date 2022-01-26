@@ -46,12 +46,10 @@
         <b-button
           type="is-success is-light"
           :disabled="Word.status === 'approved' ? true : false"
-          @click="approveWord(Word._id) && refresh"
+          @click="approveWord(Word._id)"
           >Approve</b-button
         >
-        <b-button
-          type="is-danger is-light"
-          @click="deletword(Word._id) && refresh"
+        <b-button type="is-danger is-light" @click="deletword(Word._id)"
           >Delete</b-button
         >
       </div>
@@ -86,9 +84,6 @@ export default {
         type: "is-danger",
       });
     },
-    refresh() {
-      this.$nuxt.refresh();
-    },
     async approveWord(id) {
       await this.$axios
         .$put(
@@ -102,6 +97,8 @@ export default {
           // }
         )
         .then(() => {
+          this.$emit("getallwords");
+          this.$emit("getpendingWords");
           this.$parent.close();
           this.success("word updated successfully");
         })
@@ -114,6 +111,12 @@ export default {
       await this.$axios
         .$delete(`/api/word/${id}`)
         .then(() => {
+          // if (this.$props.Word === "pending") {
+          //   this.$emit("getpendingWords");
+          // } else {
+          //   this.$emit("getapprovedWords");
+          // }
+          this.$emit("getallwords");
           this.$parent.close();
           this.success("word deleted successfully");
         })

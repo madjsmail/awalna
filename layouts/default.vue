@@ -5,22 +5,21 @@
   >
     <DefaultNavbar />
     <Nuxt style="flex: 1" class="mt-6" />
+    <span>{{ title }}</span>
     <DefaultFooter />
   </div>
 </template>
 
 <script>
-
+import { mapState } from "vuex";
 export default {
-  created () {
-
-  if (! process.server) return
-  if (this.getState('token')) {
-    this.setState('loggedIn', true)
-  
-}
-  }
-}
+  created() {
+    if (!process.server) return;
+    if (this.getState("token")) {
+      this.setState("loggedIn", true);
+    }
+  },
+};
 </script>
 <style scoped>
 @media only screen and (max-width: 500px) {

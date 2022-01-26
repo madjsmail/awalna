@@ -6,8 +6,8 @@
           <div
             class="
               column
-              is-10-mobile
-              is-offset-1-mobile
+              is-10-mobile is-offset-1-mobile
+              has-text-centered-mobile has-text-left-tablet
               is-10-tablet
               is-offset-1-tablet
               is-5-desktop
@@ -23,9 +23,7 @@
               Welcome {{ getUserInfo.fullname }}
               {{ getUserInfo.role }}
             </p>
-            <h1 class="title titled is-1 mb-6">
-              AWALNA
-            </h1>
+            <h1 class="title titled is-1 mb-6">AWALNA</h1>
             <h2
               class="
                 subtitled
@@ -36,7 +34,8 @@
                 is-family-sans-serif
               "
             >
-             is a dictionary web app for algerian  dialect ,relies on your contribution
+              is a dictionary web app for algerian dialect ,relies on your
+              contribution
             </h2>
             <div
               class="
@@ -79,11 +78,17 @@
       <div class="hero-body">
         <div class="columns is-centered">
           <div data-aos="zoom-in-up" class="column is-8">
-            <h1 class="title titled is-1 mb-6">Primary bold title</h1>
+            <h1 class="title titled is-1 mb-6">
+              Hi , There <span style="font-size: 60px">&#128075;</span>
+            </h1>
             <h2 class="subtitle subtitled">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum
-              cupiditate dolorum vitae dolores nesciunt totam magni quas. Lorem
-              ipsum, dolor sit amet consectetur adipisicing elit.
+              Because our dialect is so diverse and rich, the
+              <span class="is-uppercase has-text-weight-bold">Algerium</span>
+              team decided to create this website, so that Algerians can share
+              words from their dialect with other Algerians, as well as
+              non-Algerians who find our
+              <span class="is-uppercase has-text-weight-bold">DARJA</span>
+              difficult to comprehend.
             </h2>
           </div>
         </div>
@@ -96,7 +101,7 @@
 import { mapGetters } from "vuex";
 
 export default {
- // middleware :'guest',
+  // middleware :'guest',
   computed: {
     ...mapGetters(["getUserInfo", "isAuthenticated"]),
   },

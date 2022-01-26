@@ -23,7 +23,12 @@
         :width="640"
         scroll="keep"
       >
-        <WordCard :Word="Word" />
+        <WordCard
+          @getallwords="refresh"
+          @getpendingWords="getpendingWords"
+          @getapprovedWords="getapprovedWords"
+          :Word="Word"
+        />
       </b-modal>
     </section>
 
@@ -62,7 +67,7 @@
 import loading from "~/components/loading.vue";
 export default {
   components: { loading },
-   middleware: ["isAuthenticated", "isAdmin"],
+  middleware: ["isAuthenticated", "isAdmin"],
   data() {
     return {
       loading: true,
@@ -85,6 +90,9 @@ export default {
     };
   },
   methods: {
+    logout() {
+      console.log("this is working");
+    },
     getpendingWords() {
       this.data = this.Allword.filter((word) => word.status == "pending");
       this.total = this.data.length;
@@ -95,6 +103,15 @@ export default {
     },
     paginations(start, end) {
       return (this.data = this.data.slice(start, end));
+    },
+    refresh() {
+      this.getallwords();
+    },
+    async getallwords() {
+      await this.$axios.$get("/api/Word").then((data) => {
+        this.Allword = data;
+        this.loading = false;
+      });
     },
   },
   async created() {
